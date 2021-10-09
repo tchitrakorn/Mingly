@@ -3,7 +3,7 @@ const dotenv = require('dotenv').config({path: __dirname + '/.env'});
 const connectionString = process.env.connectionString;
 
 const client = new Client({
-  connectionString: connectionString
+  database: 'justchillindb',
 });
 
 var connect = async () => {
