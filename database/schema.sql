@@ -21,11 +21,15 @@ CREATE TABLE events (
     location    VARCHAR     NOT NULL,
     groupSize   INT         NOT NULL,
     joined      INT         DEFAULT 0,
-    mode        VARCHAR     NOT NULL,
+    mode        VARCHAR     NOT NULL
 );
 
 CREATE TABLE usersEvents (
     id          SERIAL      UNIQUE      PRIMARY KEY,
-    user        INT         NOT NULL    REFERENCES users(id),
-    events      INT         NOT NULL    REFERENCES events(id)
+    userId      INT         NOT NULL    REFERENCES users(id),
+    eventId     INT         NOT NULL    REFERENCES events(id)
 );
+
+\COPY users(name, email, password) FROM 'data/users.csv' DELIMITER ',' CSV HEADER;
+\COPY events(host, title, description, location, groupSize, joined, mode) FROM 'data/events.csv' DELIMITER ',' CSV HEADER;
+\COPY usersEvents(userId, eventId) FROM 'data/usersEvents.csv' DELIMITER ',' CSV HEADER;
