@@ -23,6 +23,7 @@ function HomeFeed() {
     return (
         <div class="homefeed">
             <FilterPanel />
+            <div class="filter-placeholder">a</div>
             <EventBoard events={events} />
         </div>
     );

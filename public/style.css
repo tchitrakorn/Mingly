@@ -93,9 +93,22 @@ a:active:before {
     right: 0;
 }
 
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .homefeed {
     display: flex;
     justify-content: center;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .menu-wrapper {
@@ -132,6 +145,14 @@ a:active:before {
     width: min(65vw, 1600px);
 }
 
+.filter-placeholder {
+    width: min(12em, 20vw);
+    border-radius: 1em;
+    visibility: hidden;
+    padding: 2em;
+    margin: 2em 0 2em 2em;
+}
+
 .filter-wrapper {
     width: min(12em, 20vw);
     border-radius: 1em;
@@ -139,6 +160,8 @@ a:active:before {
     background: var(--clr-primary-100);
     padding: 2em;
     margin: 2em 0 2em 2em;
+    position: fixed;
+    left: 7vw;
 }
 
 .filter-wrapper a,
@@ -200,4 +223,7 @@ p.event-card-title {
     color: var(--clr-neutral-100);
     padding: 0.8em;
     font-size: 0.9em;
+    /* position: absolute; */
+    width: 100vw;
+    /* bottom: 0; */
 }
