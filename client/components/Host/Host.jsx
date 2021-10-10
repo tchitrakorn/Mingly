@@ -25,6 +25,14 @@ function Host(props) {
         axios.post('/formsubmit', data)
             .then((response) => {
                 console.log(response);
+                alert('Form successfully submitted!');
+                setTitle('');
+                setDescription('');
+                setLocation('');
+                setDate('');
+                setTime('');
+                setGroupSize('');
+                setMode('');
             })
             .catch((error) => {
                 console.log('error');
