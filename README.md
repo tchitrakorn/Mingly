@@ -28,3 +28,6 @@ Mingly primarily uses:
 * React Hooks
 * React-Router-Dom
 
+# Contributors
+* Faustina Cheng <a href="https://github.com/faustinacheng">@faustinacheng</a>
+* Tatt (Tattie) Chitrakorn <a href="https://github.com/tchitrakorn">@tchitrakorn</a>
