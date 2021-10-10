@@ -9,9 +9,11 @@ function EventCard(props) {
                 {props.event.host}
             </div>
             <div>
-                <span class="material-icons">schedule</span> 2021-10-4 6:30{" "}
+                <span class="material-icons">schedule</span>
+                {props.event.date} {props.event.time}{" "}
                 <span class="material-icons">place</span>
-                {props.event.location} ({props.event.mode})
+                {props.event.location}{" "}
+                <span class="virtual-tab">{props.event.mode}</span>
             </div>
             <div>{props.event.description}</div>
 
