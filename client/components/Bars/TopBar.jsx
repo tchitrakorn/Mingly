@@ -8,10 +8,12 @@ function TopBar(props) {
             <div class="menu-wrapper">
                 <div class="menu-div">
                     <span>Welcome, {props.userName}!</span>
-                    <span class="material-icons">
-                        emoji_people emoji_people emoji_people emoji_people
-                        emoji_people
-                    </span>
+                    <div>
+                        <span class="material-icons site-logo">
+                            emoji_people
+                        </span>{" "}
+                        <span class="site-name">mingly</span>
+                    </div>
                     <div class="menu-right">
                         <div>
                             <Link to="/myevent">
