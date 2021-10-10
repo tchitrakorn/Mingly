@@ -50,6 +50,14 @@ app.post('/formsubmit', (req, res) => {
   res.status(200).send('done!');
 })
 
+app.get('/usersEvents', (req, res) => {
+  let userId = req.query.userId;
+  console.log('userId: ', userId);
+  db.getAttendingEvents(userId)
+    .then(results => res.status(200).send(results))
+    .catch(error => res.status(500).send(error));
+});
+
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });

@@ -23,5 +23,13 @@ module.exports = {
       .query(queryString, values)
       .then(results => results.rows)
       .catch(error => error);
+  },
+  getAttendingEvents: (userId) => {
+    let queryString = 'SELECT * FROM events LEFT JOIN usersEvents ON events.id = usersEvents.eventId WHERE usersEvents.userId = $1';
+    let values = [userId];
+    return db.client
+      .query(queryString, values)
+      .then(results => results.rows)
+      .catch(error => error);
   }
 }
