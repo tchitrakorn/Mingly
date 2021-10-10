@@ -42,13 +42,14 @@ function Host(props) {
 
     return (
         <div>
-            <div>
-                What kind of community would you like to create,{" "}
-                {props.userName}?
-            </div>
             <div class="form-wrapper">
                 <form onSubmit={handleFormSubmit}>
-                    <div class="host-title">Host your event</div>
+                    <div class="host-title">
+                        <div>
+                            What kind of event would you like to host,{" "}
+                            {props.userName}?
+                        </div>
+                    </div>
                     <div>
                         <label>
                             Title:

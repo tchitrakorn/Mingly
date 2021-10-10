@@ -18,6 +18,10 @@
     --ff-accent: "Lato", sans-serif;
 }
 
+.auto-margin {
+    margin: auto;
+}
+
 .split {
     display: flex;
     flex-direction: row;
@@ -89,7 +93,7 @@ a:before {
     left: 51%;
     right: 51%;
     bottom: 0;
-    background: var(--clr-primary-400);
+    background: var(--clr-primary-300);
     height: 4px;
     -webkit-transition-property: left, right;
     transition-property: left, right;
@@ -155,6 +159,17 @@ nav {
     margin-right: 2em;
 }
 
+.site-name {
+    font-size: 1.55em;
+    color: var(--clr-primary-400);
+    vertical-align: middle;
+}
+
+.site-logo {
+    font-size: 2em;
+    vertical-align: middle;
+}
+
 .event-wrapper {
     width: min(65vw, 1600px);
 }
@@ -192,7 +207,8 @@ input#group-size {
     width: 2em;
 }
 
-input#virtual {
+input#virtual,
+input#in-person {
     margin-left: 0.5em;
 }
 
@@ -239,7 +255,7 @@ p.event-card-title {
 }
 
 .virtual-tab {
-    background: var(--clr-primary-400);
+    background: var(--clr-primary-300);
     border-radius: 0.5em;
     padding: 0 0.3em;
     text-transform: capitalize;
@@ -250,17 +266,23 @@ p.event-card-title {
     margin: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 form {
     flex: 1;
+    width: 100%;
 }
 
 .form-wrapper input,
 .form-wrapper textarea {
     flex: 1;
     width: 100%;
+    border: none;
     padding: 0.5em;
+    background: transparent;
+    border-bottom: 3px solid var(--clr-primary-300);
 }
 
 .form-wrapper div {
@@ -275,6 +297,11 @@ form {
 
 #mode {
     margin-left: 0.5em;
+    padding: 0.1em;
+    margin: 0.5em;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid var(--clr-primary-300);
 }
 
 #form-submit {
@@ -286,6 +313,14 @@ form {
 
 #form-submit:hover,
 #form-submit:focus {
+    cursor: pointer;
+}
+
+form.login-wrapper > * + * {
+    margin: 3em;
+}
+
+u:hover {
     cursor: pointer;
 }
 
