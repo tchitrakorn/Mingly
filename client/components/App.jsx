@@ -15,29 +15,35 @@ const App = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userId, setUserId] = useState("");
+    const [userName, setUserName] = useState("");
 
     if (userId === "") {
         return (
             <div>
                 <Login 
                     mode={mode} 
-                    setUserId={setUserId}/>
+                    setUserId={setUserId}
+                    setUserName={setUserName}/>
             </div>
         );
     }
     return (
         <div>
             <BrowserRouter>
-                <TopBar />
+                <TopBar userName={userName}/>
                 <Switch>
                     <Route exact path="/">
                         <HomeFeed userId={userId}/>
                     </Route>
                     <Route path="/myevent">
-                        <MyEvent userId={userId}/>
+                        <MyEvent 
+                            userId={userId}
+                            userName={userName}/>
                     </Route>
                     <Route path="/host">
-                        <Host userId={userId}/>
+                        <Host 
+                            userId={userId}
+                            userName={userName}/>
                     </Route>
                 </Switch>
                 <BottomBar />

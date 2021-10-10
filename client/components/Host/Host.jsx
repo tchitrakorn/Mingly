@@ -41,6 +41,7 @@ function Host(props) {
 
     return (
         <div>
+            <div>What kind of community would you like to create, {props.userName}?</div>
             <form onSubmit={handleFormSubmit}>
                 <div>
                     <label>
