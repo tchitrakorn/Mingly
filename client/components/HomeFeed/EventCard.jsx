@@ -17,7 +17,7 @@ function EventCard(props) {
 
             <div class="card-corner">
                 <button>Join</button>
-                {props.event.joined}/{props.event.groupSize}
+                {props.event.joined}/{props.event.groupsize}
             </div>
         </div>
     );
