@@ -5,6 +5,7 @@ import MyEvent from './MyEvent/MyEvent.jsx';
 import Host from './Host/Host.jsx';
 import TopBar from './Bars/TopBar.jsx';
 import Signup from './Login/Signup.jsx';
+import BottomBar from './Bars/BottomBar.jsx';
 
 function Main() {
     return (
@@ -25,6 +26,7 @@ function Main() {
                         <Signup />
                     </Route>
                 </Switch>
+                <BottomBar />
             </BrowserRouter>
         </div>
     )

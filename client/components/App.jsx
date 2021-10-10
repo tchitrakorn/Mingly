@@ -7,6 +7,7 @@ import TopBar from './Bars/TopBar.jsx';
 import MyEvent from './MyEvent/MyEvent.jsx';
 import Host from './Host/Host.jsx';
 import Login from './Login/Login.jsx';
+import BottomBar from './Bars/BottomBar.jsx';
 
 const App = () => {
     const [mode, setMode] = useState('login');
@@ -37,6 +38,7 @@ const App = () => {
                         <Host />
                     </Route>
                 </Switch>
+                <BottomBar />
             </BrowserRouter>
         </div>
     )

@@ -17,10 +17,6 @@ function HomeFeed() {
             });
     });
 
-    const handleFilters = () => {
-        
-    };
-
     return (
         <div>
             HomeFeed
