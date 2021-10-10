@@ -20,37 +20,27 @@ const App = () => {
     if (userId === "") {
         return (
             <div>
-                <Login 
-                    mode={mode} 
+                <Login
+                    mode={mode}
                     setUserId={setUserId}
-                    setUserName={setUserName}/>
+                    setUserName={setUserName}
+                />
             </div>
         );
     }
     return (
         <div class="wrapper">
             <BrowserRouter>
-                <TopBar userName={userName}/>
+                <TopBar userName={userName} />
                 <Switch>
                     <Route exact path="/">
                         <HomeFeed userId={userId} />
                     </Route>
                     <Route path="/myevent">
-<<<<<<< HEAD
-                        <MyEvent 
-                            userId={userId}
-                            userName={userName}/>
+                        <MyEvent userId={userId} userName={userName} />
                     </Route>
                     <Route path="/host">
-                        <Host 
-                            userId={userId}
-                            userName={userName}/>
-=======
-                        <MyEvent userId={userId} />
-                    </Route>
-                    <Route path="/host">
-                        <Host userId={userId} />
->>>>>>> main
+                        <Host userId={userId} userName={userName} />
                     </Route>
                 </Switch>
                 <BottomBar />

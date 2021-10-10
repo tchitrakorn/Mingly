@@ -42,102 +42,106 @@ function Host(props) {
 
     return (
         <div>
-            <div>What kind of community would you like to create, {props.userName}?</div>
-        <div class="form-wrapper">
-            <form onSubmit={handleFormSubmit}>
-                <div class="host-title">Host your event</div>
-                <div>
-                    <label>
-                        Title:
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            placeholder="Example: Movie Night"
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Description:
-                        <textarea
-                            rows="4"
-                            cols="50"
-                            id="description"
-                            name="description"
-                            placeholder="Example: Let's go watch Soul!"
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Location:
-                        <input
-                            type="text"
-                            id="location"
-                            name="location"
-                            placeholder="Example: Local AMC"
-                            onChange={(e) => setLocation(e.target.value)}
-                        />
-                    </label>
-                </div>
-                <div class="split">
+            <div>
+                What kind of community would you like to create,{" "}
+                {props.userName}?
+            </div>
+            <div class="form-wrapper">
+                <form onSubmit={handleFormSubmit}>
+                    <div class="host-title">Host your event</div>
                     <div>
                         <label>
-                            Date:
+                            Title:
                             <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                onChange={(e) => setDate(e.target.value)}
+                                type="text"
+                                id="title"
+                                name="title"
+                                placeholder="Example: Movie Night"
+                                onChange={(e) => setTitle(e.target.value)}
                             />
                         </label>
                     </div>
                     <div>
                         <label>
-                            Time:
-                            <input
-                                type="time"
-                                id="time"
-                                name="time"
-                                onChange={(e) => setTime(e.target.value)}
+                            Description:
+                            <textarea
+                                rows="4"
+                                cols="50"
+                                id="description"
+                                name="description"
+                                placeholder="Example: Let's go watch Soul!"
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                         </label>
                     </div>
-                </div>
-                <div>
-                    <label>
-                        Preferred Group Size:
-                        <input
-                            type="text"
-                            id="groupSize"
-                            name="groupSize"
-                            onChange={(e) => setGroupSize(e.target.value)}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Mode of Hangout:
-                        <select
-                            id="mode"
-                            name="mode"
-                            onChange={(e) => setMode(e.target.value)}
-                        >
-                            <option value="in-person">In-person</option>
-                            <option value="virtual">Virtual</option>
-                        </select>
-                    </label>
-                </div>
-                <input
-                    id="form-submit"
-                    className="form-submit"
-                    type="submit"
-                    value="Submit Form"
-                ></input>
-            </form>
+                    <div>
+                        <label>
+                            Location:
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="Example: Local AMC"
+                                onChange={(e) => setLocation(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    <div class="split">
+                        <div>
+                            <label>
+                                Date:
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    onChange={(e) => setDate(e.target.value)}
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Time:
+                                <input
+                                    type="time"
+                                    id="time"
+                                    name="time"
+                                    onChange={(e) => setTime(e.target.value)}
+                                />
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label>
+                            Preferred Group Size:
+                            <input
+                                type="text"
+                                id="groupSize"
+                                name="groupSize"
+                                onChange={(e) => setGroupSize(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Mode of Hangout:
+                            <select
+                                id="mode"
+                                name="mode"
+                                onChange={(e) => setMode(e.target.value)}
+                            >
+                                <option value="in-person">In-person</option>
+                                <option value="virtual">Virtual</option>
+                            </select>
+                        </label>
+                    </div>
+                    <input
+                        id="form-submit"
+                        className="form-submit"
+                        type="submit"
+                        value="Submit Form"
+                    ></input>
+                </form>
+            </div>
         </div>
     );
 }
