@@ -31,6 +31,7 @@ app.post('/signup', (req, res) => {
 })
 
 app.post('/formsubmit', (req, res) => {
+  let host = req.body.host;
   let title = req.body.title;
   let description = req.body.description;
   let location = req.body.location;
@@ -38,6 +39,7 @@ app.post('/formsubmit', (req, res) => {
   let time = req.body.time;
   let groupSize = req.body.groupSize;
   let mode = req.body.mode;
+  console.log('host: ', host);
   console.log('title: ', title);
   console.log('description: ', description);
   console.log('location: ', location);

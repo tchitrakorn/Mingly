@@ -19,7 +19,9 @@ const App = () => {
     if (userId === "") {
         return (
             <div>
-                <Login mode={mode} />
+                <Login 
+                    mode={mode} 
+                    setUserId={setUserId}/>
             </div>
         );
     }
@@ -29,13 +31,13 @@ const App = () => {
                 <TopBar />
                 <Switch>
                     <Route exact path="/">
-                        <HomeFeed />
+                        <HomeFeed userId={userId}/>
                     </Route>
                     <Route path="/myevent">
-                        <MyEvent />
+                        <MyEvent userId={userId}/>
                     </Route>
                     <Route path="/host">
-                        <Host />
+                        <Host userId={userId}/>
                     </Route>
                 </Switch>
                 <BottomBar />

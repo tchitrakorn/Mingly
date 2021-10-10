@@ -13,6 +13,7 @@ function Host(props) {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         let data = {
+            host: props.userId,
             title: title,
             description: description,
             location: location,
