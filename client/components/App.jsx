@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import Main from './Main.jsx';
 import HomeFeed from './HomeFeed/HomeFeed.jsx';
+import TopBar from './Bars/TopBar.jsx';
+import MyEvent from './MyEvent/MyEvent.jsx';
+import Host from './Host/Host.jsx';
+import Login from './Login/Login.jsx';
 
 const App = () => {
     const [mode, setMode] = useState('login');
@@ -10,73 +15,31 @@ const App = () => {
     const [password, setPassword] = useState('');
     const [userId, setUserId] = useState('');
 
-    const handleSubmitLogin = (e) => {
-        e.preventDefault();
-        let data = {
-            email: email,
-            password: password
-        };
-        axios.post('/login', data)
-            .then((response) => {
-                console.log(response);
-                setUserId(response.data[0].id);
-                setMode('home');
-            })
-            .catch((error) => {
-                console.log('error');
-                setMode('signup');
-            })
-    }
-
-    const handleSubmitSignup = (e) => {
-        e.preventDefault();
-        let data = {
-            name: name,
-            email: email,
-            password: password
-        };
-        axios.post('/signup', data)
-            .then((response) => {
-                console.log(response);
-                setMode('login');
-            })
-            .catch((error) => {
-                console.log('error');
-            })
-    }
-    
-    if (mode === 'login') {
-        return (
-            <div className="login">
-                LOGIN
-                <form onSubmit={handleSubmitLogin}>
-                    <input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)}></input>
-                    <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
-                    <input className='form-submit' type='submit' value='Login' ></input>
-                </form>
-            </div>
-        )
-    } else if (mode === 'signup') {
-        return (
-            <div className="signup">
-                SIGNUP
-                <form onSubmit={handleSubmitSignup}>
-                    <input typpe='text' placeholder='Name' onChange={e => setName(e.target.value)}></input>
-                    <input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)}></input>
-                    <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
-                    <input className='form-submit' type='submit' value='Signup' ></input>
-                </form>
-            </div>
-        )
-    } else {
+    if (userId === '') {
         return (
             <div>
-                HOME
-                <HomeFeed userId={userId}/>
-                {/* <Main userId={userId}/> */}
+                <Login mode={mode}/>
             </div>
         )
-    }
+    } 
+    return (
+        <div>
+            <BrowserRouter>
+                <TopBar />
+                <Switch>
+                    <Route exact path='/'>
+                        <HomeFeed />
+                    </Route>
+                    <Route path='/myevent'> 
+                        <MyEvent />
+                    </Route>
+                    <Route path='/host'>
+                        <Host />
+                    </Route>
+                </Switch>
+            </BrowserRouter>
+        </div>
+    )
 }
 
 export default App;
