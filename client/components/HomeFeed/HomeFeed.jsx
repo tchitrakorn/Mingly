@@ -12,8 +12,12 @@ function HomeFeed(props) {
 
     useEffect(() => {
         console.log('userId in HomeFeed: ', props.userId);
-        axios
-            .get("/events")
+
+        let params = {
+            userId: props.userId
+        };
+
+        axios.get('/events', { params })
             .then((response) => {
                 let events = response.data;
                 let filteredEvents = helpers.filterEvents(events, inperson, virtual, groupSize);
@@ -34,6 +38,9 @@ function HomeFeed(props) {
                 groupSize={groupSize}
                 inperson={inperson}
                 virtual={virtual}/>
+
+            <div class="filter-placeholder">a</div>
+
             <EventBoard 
                 events={events} 
                 userId={props.userId}/>

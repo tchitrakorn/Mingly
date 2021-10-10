@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function EventCard(props) {
-    const [joinable, setJoinable] = useState(true)
+    const [joinable, setJoinable] = useState(true);
 
     let joinText = 'Join';
     if (joinable === false) {
         joinText = 'Joined. Cancel?'
     }
-
+    
     const handleJoin = (e) => {
         let data = {
             userId: props.userId,

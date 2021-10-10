@@ -8,7 +8,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
 app.get('/events', (req, res) => {
-  db.getEvents()
+  let userId = req.query.userId;
+  db.getEvents(userId)
     .then(results => res.status(200).send(results))
     .catch(error => res.status(500).send(error))
 });
@@ -67,10 +68,10 @@ app.get('/hostingEvents', (req, res) => {
 app.post('/joinEvent', (req, res) => {
   let userId = req.body.userId;
   let eventId = req.body.eventId;
-  console.log('userId: ', userId);
-  console.log('eventId: ', eventId);
-  res.status(200).send('done!');
-})
+  db.postJoinEvent(userId, eventId)
+    .then(results => res.status(200).send(results))
+    .catch(error => res.status(500).send(error));
+});
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
