@@ -8,7 +8,7 @@ function Login(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userId, setUserId] = useState('');
+    // const [userId, setUserId] = useState('');
 
     if (mode === 'signup') {
         return <Signup />;
@@ -27,7 +27,7 @@ function Login(props) {
         axios.post('/login', data)
             .then((response) => {
                 console.log(response);
-                setUserId(response.data[0].id);
+                props.setUserId(response.data[0].id);
                 setMode('home');
             })
             .catch((error) => {
