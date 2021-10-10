@@ -28,14 +28,15 @@ const App = () => {
         );
     }
     return (
-        <div>
+        <div class="wrapper">
             <BrowserRouter>
                 <TopBar userName={userName}/>
                 <Switch>
                     <Route exact path="/">
-                        <HomeFeed userId={userId}/>
+                        <HomeFeed userId={userId} />
                     </Route>
                     <Route path="/myevent">
+<<<<<<< HEAD
                         <MyEvent 
                             userId={userId}
                             userName={userName}/>
@@ -44,6 +45,12 @@ const App = () => {
                         <Host 
                             userId={userId}
                             userName={userName}/>
+=======
+                        <MyEvent userId={userId} />
+                    </Route>
+                    <Route path="/host">
+                        <Host userId={userId} />
+>>>>>>> main
                     </Route>
                 </Switch>
                 <BottomBar />
