@@ -9,8 +9,6 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userId, setUserId] = useState('');
-    const [suEmail, setSuEmail] = useState('');
-    const [suPassword, setSuPassword] = useState('');
 
     if (mode === 'signup') {
         return <Signup />;
@@ -74,8 +72,8 @@ function Login(props) {
             SIGNUP
             <form onSubmit={handleSubmitSignup}>
                 <input type='text' placeholder='Name' onChange={e => setName(e.target.value)}></input>
-                <input type='email' placeholder='Email' onChange={e => setSuEmail(e.target.value)}></input>
-                <input type='password' placeholder='Password' onChange={e => setSuPassword(e.target.value)}></input>
+                <input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)}></input>
+                <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
                 <input className='form-submit' type='submit' value='Signup' ></input>
             </form>
         </div>
