@@ -174,6 +174,17 @@ nav {
     width: min(65vw, 1600px);
 }
 
+.myevent-wrapper {
+    width: min(85vw, 1600px);
+}
+
+.myevents-title {
+    text-align: center;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    color: var(--clr-primary-400);
+}
+
 .filter-placeholder {
     width: min(12em, 20vw);
     border-radius: 1em;
@@ -322,6 +333,31 @@ form.login-wrapper > * + * {
 
 u:hover {
     cursor: pointer;
+}
+
+.profile-wrapper {
+    display: flex;
+    /* width: 20em; */
+    margin: 2em;
+    /* background: var(--clr-primary-100); */
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-wrapper > * {
+    margin: 0 0.7em;
+}
+
+.profile-name {
+    font-size: 2.2em;
+    color: var(--clr-primary-700);
+}
+
+.profile-icon {
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
 }
 
 .bottom-bar {
