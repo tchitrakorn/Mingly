@@ -6,7 +6,9 @@ function EventBoard(props) {
     return (
         <div class="event-wrapper">
             {props.events.map((event) => (
-                <EventCard event={event} />
+                <EventCard 
+                    event={event}
+                    userId={props.userId} />
             ))}
         </div>
     );

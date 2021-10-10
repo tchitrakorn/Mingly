@@ -8,7 +8,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
 app.get('/events', (req, res) => {
-  db.getEvents()
+  let userId = req.query.userId;
+  db.getEvents(userId)
     .then(results => res.status(200).send(results))
     .catch(error => res.status(500).send(error))
 });
@@ -39,21 +40,26 @@ app.post('/formsubmit', (req, res) => {
   let time = req.body.time;
   let groupSize = req.body.groupSize;
   let mode = req.body.mode;
-  console.log('host: ', host);
-  console.log('title: ', title);
-  console.log('description: ', description);
-  console.log('location: ', location);
-  console.log('date: ', date);
-  console.log('time: ', time);
-  console.log('groupSize: ', groupSize);
-  console.log('mode: ', mode);
-  res.status(200).send('done!');
+  // console.log('host: ', host);
+  // console.log('title: ', title);
+  // console.log('description: ', description);
+  // console.log('location: ', location);
+  // console.log('date: ', date);
+  // console.log('time: ', time);
+  // console.log('groupSize: ', groupSize);
+  // console.log('mode: ', mode);
+  db.addEvent(host, title, description, location, date, time, groupSize, mode)
+    .then(results => res.status(200).send(results))
+    .catch(error => res.status(500).send(error));
 })
 
 app.get('/usersEvents', (req, res) => {
   let userId = req.query.userId;
   db.getAttendingEvents(userId)
-    .then(results => res.status(200).send(results))
+    .then(results => {
+      console.log('results: ', results);
+      res.status(200).send(results)
+    })
     .catch(error => res.status(500).send(error));
 });
 
@@ -62,7 +68,15 @@ app.get('/hostingEvents', (req, res) => {
   db.getHostingEvents(userId)
     .then(results => res.status(200).send(results))
     .catch(error => res.status(500).send(error));
-})
+});
+
+app.post('/joinEvent', (req, res) => {
+  let userId = req.body.userId;
+  let eventId = req.body.eventId;
+  db.postJoinEvent(userId, eventId)
+    .then(results => res.status(200).send(results))
+    .catch(error => res.status(500).send(error));
+});
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
