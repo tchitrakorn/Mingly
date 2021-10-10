@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Main from './Main.jsx';
+import HomeFeed from './HomeFeed/HomeFeed.jsx';
 
 const App = () => {
     const [mode, setMode] = useState('login');
@@ -71,6 +72,8 @@ const App = () => {
         return (
             <div>
                 HOME
+                <HomeFeed userId={userId}/>
+                {/* <Main userId={userId}/> */}
             </div>
         )
     }

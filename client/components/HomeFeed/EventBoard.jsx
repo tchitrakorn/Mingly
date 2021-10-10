@@ -2,20 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EventCard from './EventCard.jsx';
 
-function EventBoard() {
-    const [events, setEvents] = useState('');
-
-    useEffect(() => {
-        axios.get('/events')
-            .then((response) => {
-                console.log(response);
-            })
-    });
-
+function EventBoard(props) {
     return (
         <div>
             EventBoard
-            <EventCard />
+            {props.events.map(event => <EventCard event={event} />)}
         </div>
     )
 }

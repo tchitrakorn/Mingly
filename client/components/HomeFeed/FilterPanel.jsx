@@ -4,6 +4,8 @@ function FilterPanel() {
     return (
         <div>
             FilterPanel
+            <div>Mode</div>
+            <div>Group Size</div>
         </div>
     )
 }
