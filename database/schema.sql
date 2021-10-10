@@ -19,7 +19,8 @@ CREATE TABLE events (
     title       VARCHAR     NOT NULL,
     description VARCHAR     NOT NULL,
     location    VARCHAR     NOT NULL,
-    time        TIMESTAMP   NOT NULL,
+    date        DATE        NOT NULL,
+    time        TIME        NOT NULL,
     groupSize   INT         NOT NULL,
     joined      INT         DEFAULT 0,
     mode        VARCHAR     NOT NULL
@@ -32,5 +33,5 @@ CREATE TABLE usersEvents (
 );
 
 \COPY users(name, email, password) FROM 'data/users.csv' DELIMITER ',' CSV HEADER;
-\COPY events(host, title, description, location, time, groupSize, joined, mode) FROM 'data/events.csv' DELIMITER ',' CSV HEADER;
+\COPY events(host, title, description, location, date, time, groupSize, joined, mode) FROM 'data/events.csv' DELIMITER ',' CSV HEADER;
 \COPY usersEvents(userId, eventId) FROM 'data/usersEvents.csv' DELIMITER ',' CSV HEADER;
