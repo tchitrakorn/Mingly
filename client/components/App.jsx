@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import Main from './Main.jsx';
 import HomeFeed from './HomeFeed/HomeFeed.jsx';
+import TopBar from './Bars/TopBar.jsx';
+import MyEvent from './MyEvent/MyEvent.jsx';
+import Host from './Host/Host.jsx';
 
 const App = () => {
     const [mode, setMode] = useState('login');
@@ -61,7 +65,7 @@ const App = () => {
             <div className="signup">
                 SIGNUP
                 <form onSubmit={handleSubmitSignup}>
-                    <input typpe='text' placeholder='Name' onChange={e => setName(e.target.value)}></input>
+                    <input type='text' placeholder='Name' onChange={e => setName(e.target.value)}></input>
                     <input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)}></input>
                     <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
                     <input className='form-submit' type='submit' value='Signup' ></input>
@@ -72,8 +76,26 @@ const App = () => {
         return (
             <div>
                 HOME
-                <HomeFeed userId={userId}/>
+                <BrowserRouter>
+                    <TopBar />
+                    <Switch>
+                        {/* <Route exact path='/' component={HomeFeed} /> */}
+                        {/* <Route path='/myevent' component={MyEvent} /> */}
+                        <Route exact path='/'>
+                            <HomeFeed />
+                        </Route>
+                        <Route path='/myevent'> 
+                            <MyEvent />
+                        </Route>
+                        <Route path='/host'>
+                            <Host />
+                        </Route>
+                        {/* other routes go here */}
+                    </Switch>
+                </BrowserRouter>
+                {/* <HomeFeed userId={userId}/> */}
                 {/* <Main userId={userId}/> */}
+                
             </div>
         )
     }
