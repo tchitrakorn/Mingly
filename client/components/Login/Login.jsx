@@ -96,29 +96,38 @@ function Login(props) {
         );
     }
     return (
-        <div className="signup">
-            SIGNUP
-            <form onSubmit={handleSubmitSignup}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    onChange={(e) => setName(e.target.value)}
-                ></input>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                ></input>
-                <input
-                    type="password"
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                ></input>
-                <input
-                    className="form-submit"
-                    type="submit"
-                    value="Signup"
-                ></input>
+        <div className="form-wrapper">
+            <form class="login-wrapper" onSubmit={handleSubmitSignup}>
+                <div class="host-title">Sign up to start mingling!</div>
+                <div>
+                    Name:
+                    <input
+                        type="text"
+                        onChange={(e) => setName(e.target.value)}
+                    ></input>
+                </div>
+                <div>
+                    Email:
+                    <input
+                        type="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                    ></input>
+                </div>
+                <div>
+                    Password:
+                    <input
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                    ></input>
+                </div>
+                <div>
+                    <input
+                        id="form-submit"
+                        className="form-submit"
+                        type="submit"
+                        value="Signup"
+                    ></input>
+                </div>
             </form>
         </div>
     );
