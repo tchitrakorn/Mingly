@@ -6,8 +6,8 @@ import helpers from './helpers.js';
 
 function HomeFeed() {
     const [events, setEvents] = useState([]);
-    const [inperson, setInperson] = useState('');
-    const [virtual, setVirtual] = useState('');
+    const [inperson, setInperson] = useState(true);
+    const [virtual, setVirtual] = useState(true);
     const [groupSize, setGroupSize] = useState('');
 
     useEffect(() => {
@@ -30,7 +30,9 @@ function HomeFeed() {
                 setInperson={setInperson}
                 setVirtual={setVirtual}
                 setGroupSize={setGroupSize}
-                groupSize={groupSize}/>
+                groupSize={groupSize}
+                inperson={inperson}
+                virtual={virtual}/>
             <EventBoard events={events} />
         </div>
     );

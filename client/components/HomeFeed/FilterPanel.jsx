@@ -26,6 +26,13 @@ function FilterPanel(props) {
                 {/* <a>Time</a> */}
                 <div id="mode-sorting">
                     <a>Mode</a>
+                    {/* <input
+                        type="radio"
+                        name="in-person"
+                        onC/> */}
+
+
+
                     <label>
                         In-person
                         <input 
@@ -33,7 +40,7 @@ function FilterPanel(props) {
                             id="in-person" 
                             name="in-person" 
                             value="in-person" 
-                            // checked={inperson}
+                            checked={props.inperson}
                             onChange={handleInputChange}/>
                     </label>
                     <br />
@@ -44,7 +51,7 @@ function FilterPanel(props) {
                             id="virtual" 
                             name="virtual" 
                             value="virtual"
-                            // checked={virtual}
+                            checked={props.virtual}
                             onChange={handleInputChange}/>
                     </label>
                 </div>
