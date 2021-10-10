@@ -8,17 +8,10 @@ function MyEvent(props) {
 
     useEffect(() => {
         console.log('userId: ', props.userId);
+
         let params = {
             userId: props.userId
         };
-
-        axios.get('/usersEvents', { params })
-        .then((response) => {
-            setAttendingEvents(response.data);
-        })
-        .catch((error) => {
-            console.log('error');
-        })
 
         axios.get('/hostingEvents', { params })
         .then((response) => {
@@ -27,8 +20,25 @@ function MyEvent(props) {
         })
         .catch((error) => {
             console.log('error');
-        })
+        });
+
+        updateMyAttendingEvents();
+
     });
+
+    const updateMyAttendingEvents = () => {
+        let params = {
+            userId: props.userId
+        };
+        axios.get('/usersEvents', { params })
+        .then((response) => {
+            console.log(response);
+            setAttendingEvents(response.data);
+        })
+        .catch((error) => {
+            console.log('error');
+        })
+    }
 
     return (
         <div>
