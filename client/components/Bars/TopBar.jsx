@@ -4,18 +4,34 @@ import MyEvent from "../MyEvent/MyEvent.jsx";
 
 function TopBar() {
     return (
-        <div>
-            Top Bar
-            <div>
-                <Link to="/myevent">My Event</Link>
+        <nav>
+            <div class="menu-wrapper">
+                <div class="menu-div">
+                    <span>Welcome, Tattie!</span>
+                    <span class="material-icons">
+                        emoji_people emoji_people emoji_people emoji_people
+                        emoji_people
+                    </span>
+                    <div class="menu-right">
+                        <div>
+                            <Link to="/myevent">
+                                <a>My Events</a>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to="/host">
+                                <a>Host</a>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to="/">
+                                <a>Join</a>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <Link to="/host">Host</Link>
-            </div>
-            <div>
-                <Link to="/">Join</Link>
-            </div>
-        </div>
+        </nav>
     );
 }
 
