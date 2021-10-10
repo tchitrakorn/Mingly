@@ -44,10 +44,12 @@ module.exports = {
   },
   postJoinEvent: (userId, eventId) => {
     let queryString = 'INSERT INTO usersEvents (userId, eventId) VALUES ($1, $2)';
+    let queryString2 = 'UPDATE events SET joined = joined + 1 WHERE events.id = $2';
     let values = [userId, eventId];
-    return db.client
-      .query(queryString, values)
-      .then(results => results.rows)
+    return Promise.all([
+      db.client.query(queryString, values),
+      db.client.query(queryString2, values)])
+      .then(results => results)
       .catch(error => error);
   },
   // getJoinableEvents: (userId, eventId) => {
