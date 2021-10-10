@@ -4,6 +4,7 @@ import HomeFeed from "./HomeFeed/HomeFeed.jsx";
 import MyEvent from "./MyEvent/MyEvent.jsx";
 import Host from "./Host/Host.jsx";
 import TopBar from "./Bars/TopBar.jsx";
+import BottomBar from "./Bars/BottomBar.jsx";
 import Signup from "./Login/Signup.jsx";
 
 function Main() {
@@ -25,6 +26,7 @@ function Main() {
                         <Signup />
                     </Route>
                 </Switch>
+                <BottomBar />
             </BrowserRouter>
         </div>
     );

@@ -4,6 +4,7 @@ import axios from "axios";
 import Main from "./Main.jsx";
 import HomeFeed from "./HomeFeed/HomeFeed.jsx";
 import TopBar from "./Bars/TopBar.jsx";
+import BottomBar from "./Bars/BottomBar.jsx";
 import MyEvent from "./MyEvent/MyEvent.jsx";
 import Host from "./Host/Host.jsx";
 import Login from "./Login/Login.jsx";
@@ -37,6 +38,7 @@ const App = () => {
                         <Host />
                     </Route>
                 </Switch>
+                <BottomBar />
             </BrowserRouter>
         </div>
     );
