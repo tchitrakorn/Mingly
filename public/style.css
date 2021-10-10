@@ -103,6 +103,7 @@ a:active:before {
 .homefeed {
     display: flex;
     justify-content: center;
+    flex: 1;
 }
 
 nav {
@@ -169,7 +170,16 @@ nav {
     display: block;
 }
 
-.filter-wrapper a {
+#mode-sorting,
+#group-size-sorting {
+    margin-left: 0.5em;
+}
+
+input#group-size {
+    width: 2em;
+}
+
+input#virtual {
     margin-left: 0.5em;
 }
 

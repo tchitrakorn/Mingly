@@ -7,65 +7,65 @@ function FilterPanel(props) {
 
     const handleInputChange = (e) => {
         const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value =
+            target.type === "checkbox" ? target.checked : target.value;
         const name = target.name;
-        console.log('target: ', target);
-        console.log('value: ', value);
-        console.log('name: ', name);
-        if (name === 'in-person') {
+        console.log("target: ", target);
+        console.log("value: ", value);
+        console.log("name: ", name);
+        if (name === "in-person") {
             props.setInperson(value);
         }
-        if (name === 'virtual') {
+        if (name === "virtual") {
             props.setVirtual(value);
         }
-    }
+    };
     return (
         <div class="filter-wrapper">
             <form>
                 <p class="filter-by">Filter By:</p>
                 {/* <a>Time</a> */}
                 <div id="mode-sorting">
-                    <a>Mode</a>
                     {/* <input
                         type="radio"
                         name="in-person"
                         onC/> */}
 
-
-
                     <label>
                         In-person
-                        <input 
-                            type="checkbox" 
-                            id="in-person" 
-                            name="in-person" 
-                            value="in-person" 
+                        <input
+                            type="checkbox"
+                            id="in-person"
+                            name="in-person"
+                            value="in-person"
                             checked={props.inperson}
-                            onChange={handleInputChange}/>
+                            onChange={handleInputChange}
+                        />
                     </label>
                     <br />
                     <label>
                         Virtual
-                        <input 
-                            type="checkbox" 
-                            id="virtual" 
-                            name="virtual" 
+                        <input
+                            type="checkbox"
+                            id="virtual"
+                            name="virtual"
                             value="virtual"
                             checked={props.virtual}
-                            onChange={handleInputChange}/>
+                            onChange={handleInputChange}
+                        />
                     </label>
                 </div>
                 <div id="group-size-sorting">
-                    <a>Group Size</a>
                     <label>
-                        Choose your preferred maximum group size:
-                        <input 
-                            type="text" 
+                        Max Group Size:
+                        <input
+                            id="group-size"
+                            type="text"
                             name="groupSize"
-                            onChange={e => props.setGroupSize(e.target.value)} />
+                            onChange={(e) => props.setGroupSize(e.target.value)}
+                        />
                     </label>
                 </div>
-
             </form>
         </div>
     );

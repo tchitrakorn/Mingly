@@ -39,6 +39,8 @@ function HomeFeed() {
                 inperson={inperson}
                 virtual={virtual}
             />
+            <div class="filter-placeholder">a</div>
+
             <EventBoard events={events} />
         </div>
     );
