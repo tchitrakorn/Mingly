@@ -19,12 +19,25 @@ const App = () => {
 
     if (userId === "") {
         return (
-            <div>
+            <div class="wrapper">
+                <nav>
+                    <div class="menu-wrapper">
+                        <div class="menu-div">
+                            <div class="auto-margin">
+                                <span class="material-icons site-logo">
+                                    emoji_people
+                                </span>{" "}
+                                <span class="site-name">mingly</span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
                 <Login
                     mode={mode}
                     setUserId={setUserId}
                     setUserName={setUserName}
                 />
+                <div class="bottom-bar">- Made by Foz and Tattie 2021 -</div>
             </div>
         );
     }
