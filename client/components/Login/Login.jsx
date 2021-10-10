@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Signup from './Signup.jsx';
 import Main from '../Main.jsx';
-// import { Link } from 'react-router-dom';
 
 function Login(props) {
     const [mode, setMode] = useState(props.mode);
@@ -10,6 +9,8 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userId, setUserId] = useState('');
+    const [suEmail, setSuEmail] = useState('');
+    const [suPassword, setSuPassword] = useState('');
 
     if (mode === 'signup') {
         return <Signup />;
@@ -54,14 +55,6 @@ function Login(props) {
             })
     }
 
-    const triggerSignup = (e) => {
-        console.log('here!');
-        setMode('signup');
-        return (
-            <Signup />
-        );
-    }
-
     if (mode === 'login') {
         return (
             <div className="login">
@@ -71,9 +64,8 @@ function Login(props) {
                     <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
                     <input className='form-submit' type='submit' value='Login' ></input>
                 </form>
-                {/* <Link to='/signup'>Sign Up</Link> */}
-                <button type="button" onClick={triggerSignup}>Sign Up</button>
-                {/* <p>Don't have an account? <span onClick={e => setMode('signup')}>Sign Up Here</span></p> */}
+                {/* <button type="button" onClick={e => setMode('signup')}>Sign Up</button> */}
+                <p>Don't have an account? <u onClick={e => setMode('signup')}>Sign Up Here</u></p>
             </div>
         )
     }
@@ -82,8 +74,8 @@ function Login(props) {
             SIGNUP
             <form onSubmit={handleSubmitSignup}>
                 <input type='text' placeholder='Name' onChange={e => setName(e.target.value)}></input>
-                <input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)}></input>
-                <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
+                <input type='email' placeholder='Email' onChange={e => setSuEmail(e.target.value)}></input>
+                <input type='password' placeholder='Password' onChange={e => setSuPassword(e.target.value)}></input>
                 <input className='form-submit' type='submit' value='Signup' ></input>
             </form>
         </div>
