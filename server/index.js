@@ -62,6 +62,14 @@ app.get('/hostingEvents', (req, res) => {
   db.getHostingEvents(userId)
     .then(results => res.status(200).send(results))
     .catch(error => res.status(500).send(error));
+});
+
+app.post('/joinEvent', (req, res) => {
+  let userId = req.body.userId;
+  let eventId = req.body.eventId;
+  console.log('userId: ', userId);
+  console.log('eventId: ', eventId);
+  res.status(200).send('done!');
 })
 
 app.listen(port, () => {
