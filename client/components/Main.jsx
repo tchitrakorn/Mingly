@@ -9,7 +9,7 @@ import Signup from "./Login/Signup.jsx";
 
 function Main() {
     return (
-        <div>
+        <div class="wrapper">
             <BrowserRouter>
                 <TopBar />
                 <Switch>
