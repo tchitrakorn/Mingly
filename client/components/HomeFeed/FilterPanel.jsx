@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
 function FilterPanel() {
     return (
-        <div>
-            FilterPanel
-            <div>Mode</div>
-            <div>Group Size</div>
+        <div class="filter-wrapper">
+            <p class="filter-by">Filter By:</p>
+            <a>Time</a>
+            <a>Location</a>
+            <a>Mode</a>
+            <a>Group Size</a>
         </div>
-    )
+    );
 }
 
 export default FilterPanel;
