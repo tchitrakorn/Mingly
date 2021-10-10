@@ -41,6 +41,8 @@ function Host(props) {
     };
 
     return (
+        <div>
+            <div>What kind of community would you like to create, {props.userName}?</div>
         <div class="form-wrapper">
             <form onSubmit={handleFormSubmit}>
                 <div class="host-title">Host your event</div>

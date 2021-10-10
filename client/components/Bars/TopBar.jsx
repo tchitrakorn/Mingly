@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MyEvent from "../MyEvent/MyEvent.jsx";
 
-function TopBar() {
+function TopBar(props) {
     return (
         <nav>
             <div class="menu-wrapper">
                 <div class="menu-div">
-                    <span>Welcome, Tattie!</span>
+                    <span>Welcome, {props.userName}!</span>
                     <span class="material-icons">
                         emoji_people emoji_people emoji_people emoji_people
                         emoji_people

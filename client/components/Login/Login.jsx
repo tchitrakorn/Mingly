@@ -26,8 +26,9 @@ function Login(props) {
         };
         axios.post('/login', data)
             .then((response) => {
-                console.log(response);
+                console.log('after login: ', response);
                 props.setUserId(response.data[0].id);
+                props.setUserName(response.data[0].name);
                 setMode('home');
             })
             .catch((error) => {
