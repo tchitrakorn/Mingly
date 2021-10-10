@@ -1,10 +1,12 @@
 const db = require('../database/connect.js');
 
 module.exports = {
-  getEvents: () => {
-    let queryString = 'SELECT * FROM "events"';
+  getEvents: (userId) => {
+    // let queryString = 'SELECT * FROM "events"';
+    let queryString = 'SELECT * FROM events LEFT JOIN usersEvents ON events.id = usersEvents.eventId WHERE usersEvents.userId != $1';
+    let values = [userId];
     return db.client
-      .query(queryString)
+      .query(queryString, values)
       .then(results => results.rows)
       .catch(error => error);
   },
@@ -39,5 +41,31 @@ module.exports = {
       .query(queryString, values)
       .then(results => results.rows)
       .catch(error => error);
+  },
+  postJoinEvent: (userId, eventId) => {
+    let queryString = 'INSERT INTO usersEvents (userId, eventId) VALUES ($1, $2)';
+    let queryString2 = 'UPDATE events SET joined = joined + 1 WHERE events.id = $2';
+    let values = [userId, eventId];
+    return Promise.all([
+      db.client.query(queryString, values),
+      db.client.query(queryString2, values)])
+      .then(results => results)
+      .catch(error => error);
+  },
+  addEvent: (host, title, description, location, date, time, groupSize, mode) => {
+    let queryString = 'INSERT INTO events (host, title, description, location, date, time, groupSize, mode) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
+    let values = [host, title, description, location, date, time, groupSize, mode];
+    return db.client
+      .query(queryString, values)
+      .then(results => results)
+      .catch(error => error);
   }
+  // getJoinableEvents: (userId, eventId) => {
+  //   let queryString = 'SELECT * FROM events LEFT JOIN usersEvents ON events.id = usersEvents.eventId WHERE usersEvents.userId = $1';
+  //   let values = [userId];
+  //   return db.client
+  //     .query(queryString, values)
+  //     .then(results => results.rows)
+  //     .catch(error => error);
+  // }
 }
