@@ -4,7 +4,7 @@ var DIST_DIR = path.join(__dirname, '/public');
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: `${SRC_DIR}/App.jsx`,
+  entry: `${SRC_DIR}/Index.jsx`,
   mode: 'development',
   output: {
     filename: 'bundle.js',
