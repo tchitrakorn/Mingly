@@ -34,6 +34,8 @@ function MyEvent(props) {
         <div>
             <div>
                 My Profile:
+                <div>DEFAULT IMAGE GOES HERE</div>
+                <div>Name: {props.userName}</div>
             </div>
             <div>
                 Hosting:
