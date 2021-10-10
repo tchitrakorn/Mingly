@@ -2,23 +2,32 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomeFeed from './HomeFeed/HomeFeed.jsx';
 import MyEvent from './MyEvent/MyEvent.jsx';
-/* all components imported here */
+import Host from './Host/Host.jsx';
+import TopBar from './Bars/TopBar.jsx';
+import Signup from './Login/Signup.jsx';
 
 function Main() {
     return (
-        <main>
+        <div>
             <BrowserRouter>
+                <TopBar />
                 <Switch>
-                    <Route exact path='/' component={HomeFeed} />
-                    {/* <Route path='/myevent' component={MyEvent} /> */}
+                    <Route exact path='/'>
+                        <HomeFeed />
+                    </Route>
                     <Route path='/myevent'> 
                         <MyEvent />
                     </Route>
-                    {/* other routes go here */}
+                    <Route path='/host'>
+                        <Host />
+                    </Route>
+                    <Route path='/signup'>
+                        <Signup />
+                    </Route>
                 </Switch>
             </BrowserRouter>
-        </main>
-    );
+        </div>
+    )
 }
 
 export default Main;
