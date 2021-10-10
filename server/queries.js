@@ -52,6 +52,14 @@ module.exports = {
       .then(results => results)
       .catch(error => error);
   },
+  addEvent: (host, title, description, location, date, time, groupSize, mode) => {
+    let queryString = 'INSERT INTO events (host, title, description, location, date, time, groupSize, mode) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
+    let values = [host, title, description, location, date, time, groupSize, mode];
+    return db.client
+      .query(queryString, values)
+      .then(results => results)
+      .catch(error => error);
+  }
   // getJoinableEvents: (userId, eventId) => {
   //   let queryString = 'SELECT * FROM events LEFT JOIN usersEvents ON events.id = usersEvents.eventId WHERE usersEvents.userId = $1';
   //   let values = [userId];

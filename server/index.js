@@ -40,15 +40,17 @@ app.post('/formsubmit', (req, res) => {
   let time = req.body.time;
   let groupSize = req.body.groupSize;
   let mode = req.body.mode;
-  console.log('host: ', host);
-  console.log('title: ', title);
-  console.log('description: ', description);
-  console.log('location: ', location);
-  console.log('date: ', date);
-  console.log('time: ', time);
-  console.log('groupSize: ', groupSize);
-  console.log('mode: ', mode);
-  res.status(200).send('done!');
+  // console.log('host: ', host);
+  // console.log('title: ', title);
+  // console.log('description: ', description);
+  // console.log('location: ', location);
+  // console.log('date: ', date);
+  // console.log('time: ', time);
+  // console.log('groupSize: ', groupSize);
+  // console.log('mode: ', mode);
+  db.addEvent(host, title, description, location, date, time, groupSize, mode)
+    .then(results => res.status(200).send(results))
+    .catch(error => res.status(500).send(error));
 })
 
 app.get('/usersEvents', (req, res) => {
