@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 8080;
 const db = require('./queries.js');
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
@@ -17,18 +19,30 @@ app.get('/events', (req, res) => {
 app.post('/login', (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  db.getUser(email, password)
-    .then(results => res.status(200).send(results))
-    .catch(error => res.status(500).send(error))
+  let storedHash = db.getHash(email, password)
+    .then(results => results)
+    .catch(error => console.log(error));
+  bcrypt.compare(password, storedHash)
+    .then(result => {
+      db.getUser(email, password)
+        .then(results => res.status(200).send(results))
+        .catch(error => res.status(500).send(error))
+    })
+    .catch(error => console.log(error))
 });
 
 app.post('/signup', (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
   let password = req.body.password;
-  db.postUser(name, email, password)
-    .then(results => res.status(200).send(results))
-    .catch(error => res.status(500).send(error));
+  bcrypt
+    .hash(password, saltRounds)
+    .then(hash => {
+      db.postUser(name, email, hash)
+        .then(results => res.status(200).send(results))
+        .catch(error => res.status(500).send(error));
+    })
+    .catch(error => res.status(500).send(error))
 })
 
 app.post('/formsubmit', (req, res) => {
