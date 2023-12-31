@@ -27,13 +27,15 @@ function Login(props) {
         axios
             .post("/login", data)
             .then((response) => {
-                console.log("after login: ", response);
-                props.setUserId(response.data[0].id);
-                props.setUserName(response.data[0].name);
+                console.log("after login: ", response.data);
+                console.log('userId: ', response.data.userId)
+                console.log('name: ', response.data.firstname)
+                props.setUserId(response.data.userId);
+                props.setUserName(response.data.firstname);
                 setMode("home");
             })
             .catch((error) => {
-                console.log("error");
+                console.log("error: ", error);
                 setMode("signup");
             });
     };

@@ -15,7 +15,7 @@ const App = () => {
     const [userId, setUserId] = useState('');
 
     if (mode === 'signup') {
-        return 
+        return
     }
 
     const handleSubmitLogin = (e) => {
@@ -27,7 +27,8 @@ const App = () => {
         axios.post('/login', data)
             .then((response) => {
                 console.log(response);
-                setUserId(response.data[0].id);
+                console.log('userId: ', response.data[0].userId)
+                setUserId(response.data[0].userId);
                 setMode('home');
             })
             .catch((error) => {
@@ -52,7 +53,7 @@ const App = () => {
                 console.log('error');
             })
     }
-    
+
     if (mode === 'login') {
         return (
             <div className="login">
@@ -87,7 +88,7 @@ const App = () => {
                         <Route exact path='/'>
                             <HomeFeed />
                         </Route>
-                        <Route path='/myevent'> 
+                        <Route path='/myevent'>
                             <MyEvent />
                         </Route>
                         <Route path='/host'>

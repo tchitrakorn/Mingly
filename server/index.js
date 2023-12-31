@@ -68,7 +68,7 @@ app.patch('/event', (req, res) => {
 })
 
 // Verify user's credentials (log-in)
-app.post('/login', (req, res) => {
+app.post('/login2', (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
   mongodb.getLoggedInUser(email, password)
@@ -79,6 +79,14 @@ app.post('/login', (req, res) => {
 // Add a new user (sign-up)
 app.post('/signup', (req, res) => {
   mongodb.addUser(req.body)
+    .then(results => res.status(200).send(results))
+    .catch(error => res.status(500).send(error))
+});
+
+app.post('/login', (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+  db.getUser(email, password)
     .then(results => res.status(200).send(results))
     .catch(error => res.status(500).send(error))
 });
